@@ -1,12 +1,29 @@
 const gulp = require('gulp');
-const inlinesource = require('gulp-inline-source');
-const processhtml = require('gulp-processhtml');
+const preprocess = require('gulp-preprocess');
 
-gulp.task('build', () => {
+// const inlinesource = require('gulp-inline-source');
+// const processhtml = require('gulp-processhtml');
+
+gulp.task('build:dev', () => {
   return gulp.src('./src/mirador-viewer.html')
-    .pipe(processhtml({}))
-    .pipe(inlinesource())
+    .pipe(preprocess(
+      {
+        context: { NODE_ENV: 'dev' }
+      }
+    ))
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['build']);
+gulp.task('build:prod', () => {
+  return gulp.src('./src/mirador-viewer.html')
+    .pipe(preprocess({
+      context:
+        {
+          NODE_ENV: 'production'
+        }
+      })
+    )
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('default', ['build:prod']);

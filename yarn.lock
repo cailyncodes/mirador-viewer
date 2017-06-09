@@ -436,6 +436,14 @@ gulp-inline-source@^3.1.0:
     inline-source "~5.2.1"
     through2 "~2.0.0"
 
+gulp-preprocess@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-preprocess/-/gulp-preprocess-2.0.0.tgz#067bf6a4e1b703d7b45ed2047ce7e87d5974d241"
+  dependencies:
+    lodash "3.10.x"
+    map-stream "0.1.x"
+    preprocess "^3.0.0"
+
 gulp-processhtml@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/gulp-processhtml/-/gulp-processhtml-1.1.0.tgz#db96ac0233039d6e075025fba5af3227363046f1"
@@ -793,6 +801,10 @@ lodash.templatesettings@^3.0.0:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
 
+lodash@3.10.x:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
 lodash@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-1.0.2.tgz#8f57560c83b59fc270bd3d561b690043430e2551"
@@ -812,6 +824,10 @@ lru-cache@2:
 map-cache@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
+
+map-stream@0.1.x:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
 
 micromatch@^2.3.7:
   version "2.3.11"
@@ -945,6 +961,12 @@ path-root@^0.1.1:
   resolved "https://registry.yarnpkg.com/path-root/-/path-root-0.1.1.tgz#9a4a6814cac1c0cd73360a95f32083c8ea4745b7"
   dependencies:
     path-root-regex "^0.1.0"
+
+preprocess@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/preprocess/-/preprocess-3.1.0.tgz#a44e5cdd5bbb5a54f0ad289aaeed80995d7d938a"
+  dependencies:
+    xregexp "3.1.0"
 
 preserve@^0.2.0:
   version "0.2.0"
@@ -1230,6 +1252,10 @@ wordwrap@0.0.2:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+xregexp@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-3.1.0.tgz#14d8461e0bdd38224bfee5039a0898fc42fcd336"
 
 "xtend@>=4.0.0 <4.1.0-0", xtend@~4.0.1:
   version "4.0.1"

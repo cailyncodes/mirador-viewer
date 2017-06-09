@@ -436,7 +436,15 @@ gulp-inline-source@^3.1.0:
     inline-source "~5.2.1"
     through2 "~2.0.0"
 
-gulp-util@^3.0.0, gulp-util@~3.0.6:
+gulp-processhtml@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gulp-processhtml/-/gulp-processhtml-1.1.0.tgz#db96ac0233039d6e075025fba5af3227363046f1"
+  dependencies:
+    gulp-util latest
+    htmlprocessor latest
+    through2 latest
+
+gulp-util@^3.0.0, gulp-util@latest, gulp-util@~3.0.6:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -515,6 +523,12 @@ htmlparser2@3.9.x:
     entities "^1.1.1"
     inherits "^2.0.1"
     readable-stream "^2.0.2"
+
+htmlprocessor@latest:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/htmlprocessor/-/htmlprocessor-0.2.4.tgz#adbb36f8f07845a8451e34de94fcf29e146c6b53"
+  dependencies:
+    lodash "~2.4.1"
 
 inflight@^1.0.4:
   version "1.0.6"
@@ -782,6 +796,10 @@ lodash.templatesettings@^3.0.0:
 lodash@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-1.0.2.tgz#8f57560c83b59fc270bd3d561b690043430e2551"
+
+lodash@~2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -1111,7 +1129,7 @@ through2@^0.6.1:
     readable-stream ">=1.0.33-1 <1.1.0-0"
     xtend ">=4.0.0 <4.1.0-0"
 
-through2@^2.0.0, through2@~2.0.0:
+through2@^2.0.0, through2@latest, through2@~2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
   dependencies:

@@ -16,13 +16,11 @@ gulp.task('build:dev', () => {
 
 gulp.task('build:prod', () => {
   return gulp.src('./src/mirador-viewer.html')
-    .pipe(preprocess({
-      context:
-        {
-          NODE_ENV: 'production'
-        }
-      })
-    )
+    .pipe(preprocess(
+      {
+        context: { NODE_ENV: 'production' }
+      }
+    ))
     .pipe(gulp.dest('./'));
 });
 

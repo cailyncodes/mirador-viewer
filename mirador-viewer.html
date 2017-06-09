@@ -1,6 +1,53 @@
-<link rel="import" href="../polymer/polymer-element.html">
-<!-- inline node_modules/html-string-builder/dist/index.js -->
-<script type="text/javascript">"use strict";var preamble=function(t){return"<!DOCTYPE "+(t=t||"html")+"><html>"},_tagConcat=function(t,n){return function(r){var a="";a=n?a.concat("<"+t+" "+n+">"):a.concat("<"+t+">");var o=!0,c=!1,e=void 0;try{for(var l,u=r[Symbol.iterator]();!(o=(l=u.next()).done);o=!0){var i=l.value;a=a.concat(i)}}catch(t){c=!0,e=t}finally{try{!o&&u.return&&u.return()}finally{if(c)throw e}}return a=a.concat("</"+t+">")}},head=_tagConcat("head"),body=_tagConcat("body",'style="margin: 0;"'),postamble=function(){return"</html>"};</script>
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+
+<script>
+"use strict";
+
+var preamble = function preamble(doctype) {
+  doctype = doctype || 'html';
+  return "<!DOCTYPE " + doctype + "><html>";
+};
+var _tagConcat = function _tagConcat(mainTagName, optionalAttributes) {
+  return function (tags) {
+    var string = "";
+    string = optionalAttributes ? string.concat("<" + mainTagName + " " + optionalAttributes + ">") : string.concat("<" + mainTagName + ">");
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = tags[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var tag = _step.value;
+
+        string = string.concat(tag);
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    string = string.concat("</" + mainTagName + ">");
+    return string;
+  };
+};
+var head = _tagConcat("head");
+var body = _tagConcat("body", "style=\"margin: 0;\"");
+var postamble = function postamble() {
+  return "</html>";
+};
+//# sourceMappingURL=index.js.map
+
+</script>
 <dom-module id="mirador-viewer">
   <template>
     <style>
@@ -58,7 +105,7 @@
            location: String,
            buildPath: {
              type: String,
-             value: "../lib/mirador/mirador/"
+             value: "./bower_components/mirador-viewer/lib/mirador/mirador/"
            },
            layout: String,
            windowObjects: Array
@@ -83,10 +130,10 @@
 
          // set up tags that go into the head tag
          this._headTags = [];
-         // note that this href and src don't line up with respect to this file
-         // it's only after a build do these work
-         this._headTags.push(`<link rel="stylesheet" type="text/css" href="./lib/mirador/mirador/css/mirador-combined.css">`);
-         this._headTags.push(`<script src="./lib/mirador/mirador/mirador.js"></scr`+`ipt>`);
+
+         this._headTags.push(`<link rel="stylesheet" type="text/css" href="./bower_components/mirador-viewer/lib/mirador/mirador/css/mirador-combined.css">`);
+         this._headTags.push(`<script src="./bower_components/mirador-viewer/lib/mirador/mirador/mirador.js"></scr`+`ipt>`);
+
 
          // set up tags that go into the body tag
          this._bodyTags = [];

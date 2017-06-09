@@ -1,0 +1,28 @@
+{
+  "name": "mirador-viewer",
+  "authors": [
+    "Cole Hansen <cole_hansen@brown.edu>"
+  ],
+  "description": "A web component for encapsulating a mirador viewer.",
+  "main": "mirador-viewer.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "viewer",
+    "mirador",
+    "iiif"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0",
+    "iron-demo-helpers": "^2.0.0"
+  },
+  "devDependencies": {
+  }
+}

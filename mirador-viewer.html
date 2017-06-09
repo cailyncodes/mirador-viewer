@@ -1,0 +1,142 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<!-- inline node_modules/html-string-builder/dist/index.js -->
+<script type="text/javascript">"use strict";var preamble=function(t){return"<!DOCTYPE "+(t=t||"html")+"><html>"},_tagConcat=function(t,n){return function(r){var a="";a=n?a.concat("<"+t+" "+n+">"):a.concat("<"+t+">");var o=!0,c=!1,e=void 0;try{for(var l,u=r[Symbol.iterator]();!(o=(l=u.next()).done);o=!0){var i=l.value;a=a.concat(i)}}catch(t){c=!0,e=t}finally{try{!o&&u.return&&u.return()}finally{if(c)throw e}}return a=a.concat("</"+t+">")}},head=_tagConcat("head"),body=_tagConcat("body",'style="margin: 0;"'),postamble=function(){return"</html>"};</script>
+<dom-module id="mirador-viewer">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: var(--mirador-viewer-component-width, [[width]]);
+        height: var(--mirador-viewer-component-height, [[height]]);
+        @apply --mirador-viewer-component-theme;
+      }
+      :host div {
+        width: 100%;
+        height: 100%;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    </style>
+
+    <div>
+      <iframe src="about:blank" id="iframe-viewer" allowfullscreen="allowfullscreen" seamless='seamless'></iframe>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `mirador-viewer`
+     * An encapsulation of the mirador viewer into a web component custom element.
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+     class MiradorViewer extends Polymer.Element {
+       constructor() {
+         super();
+       }
+
+       static get properties() {
+         return {
+           width: {
+             type: String,
+             value: "100%"
+           },
+           height: {
+             type: String,
+             value: "600px"
+           },
+           type: {
+             type: String,
+             value: "manifest"
+           },
+           uri: String,
+           location: String,
+           buildPath: {
+             type: String,
+             value: "../lib/mirador/mirador/"
+           },
+           layout: String,
+           windowObjects: Array
+         }
+       }
+
+       static get is() { return "mirador-viewer"; }
+
+       connectedCallback() {
+         super.connectedCallback();
+         // check to make sure we have the required attributes
+         if (!this.type) {
+           // don't fail gracefully
+           throw new Error("mirador-viewer-component requires that you specify a 'type' attribute.");
+           return;
+         }
+         if (this.type != "collection" && this.type != "manifest") {
+           // don't fail gracefully
+           throw new Error("mirador-viewer-component requires that the 'type' attribute be set to 'collection' or 'manifest'.");
+           return;
+         }
+
+         // set up tags that go into the head tag
+         this._headTags = [];
+         this._headTags.push(`<link rel="stylesheet" type="text/css" href="../lib/mirador/mirador/css/mirador-combined.css">`);
+         this._headTags.push(`<script src="../lib/mirador/mirador/mirador.js"></scr`+`ipt>`);
+
+         // set up tags that go into the body tag
+         this._bodyTags = [];
+         this._bodyTags.push(`<div id='viewer' allowfullscreen='allowfullscreen'></div>`);
+         let idRow = `id: "viewer"`;
+         let dataRow = (this.uri && this.location && `data: [{ "${this.type}Uri": "${this.uri}", "location": "${this.location}"}],`) || '';
+         let layoutRow = (this.layout && `layout: "${this.layout}",`) || ''; // should check for invalid layout string, the error probably won't bubble up
+         let buildPath = (this.buildPath && `buildPath: "${this.buildPath}",`) || '';
+         let windowObjectsString = (function(windowObjects) {
+           if (!windowObjects) return;
+           let string = "[";
+           for (let i = 0; i < windowObjects.length; ++i) {
+             string = string.concat("{");
+             for (let prop in windowObjects[i]) {
+               if (windowObjects[i].hasOwnProperty(prop)) {
+                 string = string.concat(`${prop}:"${windowObjects[i][prop]}",`)
+               }
+             }
+             string = string.substring(0, string.length - 1);
+             string = string.concat("},");
+           }
+           string = string.substring(0, string.length - 1);
+           string = string.concat("]");
+           return string;
+         })(this.windowObjects);
+         let windowObjectsRow = (this.windowObjects && `windowObjects: ${windowObjectsString},`) || '';
+         let bodyScript =
+           '<script>' +
+             'Mirador({' +
+               dataRow +
+               layoutRow +
+               buildPath +
+               windowObjectsRow +
+               idRow + // needs to be last so everything before it can when it's constructed have a , at the end
+             '});' +
+           '</scr' + 'ipt>';
+         this._bodyTags.push(bodyScript);
+         let iframe = this.$['iframe-viewer'];
+         let iframeDoc = iframe.contentDocument;
+         let html = preamble() + head(this._headTags) + body(this._bodyTags) + postamble();
+         iframeDoc.open();
+         iframeDoc.write(html);
+         iframeDoc.close();
+         // Mirador({
+         //   element: this.$["viewer"],
+         //   data: [
+         //     { "manifestUri": "http://dms-data.stanford.edu/data/manifests/Walters/qm670kv1873/manifest.json", "location": "Stanford University"}
+         //   ]
+         // });
+       }
+     }
+
+    customElements.define(MiradorViewer.is, MiradorViewer);
+  </script>
+</dom-module>

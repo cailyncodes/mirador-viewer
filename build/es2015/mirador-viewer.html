@@ -1,0 +1,72 @@
+<link rel="import" href="./bower_components/polymer/polymer-element.html">
+
+<script>
+"use strict";
+
+var preamble = function preamble(doctype) {
+  doctype = doctype || 'html';
+  return "<!DOCTYPE " + doctype + "><html>";
+};
+var _tagConcat = function _tagConcat(mainTagName, optionalAttributes) {
+  return function (tags) {
+    var string = "";
+    string = optionalAttributes ? string.concat("<" + mainTagName + " " + optionalAttributes + ">") : string.concat("<" + mainTagName + ">");
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = tags[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var tag = _step.value;
+
+        string = string.concat(tag);
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    string = string.concat("</" + mainTagName + ">");
+    return string;
+  };
+};
+var head = _tagConcat("head");
+var body = _tagConcat("body", "style=\"margin: 0;\"");
+var postamble = function postamble() {
+  return "</html>";
+};
+//# sourceMappingURL=index.js.map
+
+</script>
+<dom-module id="mirador-viewer">
+  <template>
+    <style>
+      :host {
+        display: block;
+        @apply --mirador-viewer-component-theme;
+        width: var(--mirador-viewer-component-width);
+        height: var(--mirador-viewer-component-height);
+      }
+      :host div {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+
+    <div id="container-{{_viewerCount}}">
+      <!-- <iframe src="about:blank" id="iframe-viewer-{{_viewerCount}}" allowfullscreen="allowfullscreen" seamless='seamless'></iframe> -->
+    </div>
+  </template>
+
+  <script src="mirador-viewer.js"></script>
+</dom-module>

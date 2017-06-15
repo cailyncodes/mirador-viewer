@@ -10,14 +10,36 @@
     "mirador",
     "iiif"
   ],
-  "main": "mirador-viewer.html",
+  "scripts": {
+    "clean": "rm -rf bower_components/ node_modules/ build/",
+    "pre-build": "yarn run clean; yarn install; bower install",
+    "build:dev": "yarn run pre-build; gulp build:dev",
+    "run:dev": "http-server -p 3000 --bind 0.0.0.0 --cors",
+    "build:test": "yarn run pre-build; gulp build:test",
+    "build": "yarn run pre-build; gulp build",
+    "test": "yarn run pre-build; yarn run build:test; wct"
+  },
+  "main": "build/es2015/mirador-viewer.html",
   "license": "MIT",
   "homepage": "",
+  "dependencies": {
+    "html-string-builder": "^1.0.0"
+  },
   "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "bower": "^1.8.0",
+    "css-slam": "^1.2.1",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-html-minifier": "^0.1.8",
+    "gulp-if": "^2.0.2",
     "gulp-inline-source": "^3.1.0",
     "gulp-preprocess": "^2.0.0",
     "gulp-processhtml": "^1.1.0",
-    "html-string-builder": "^1.0.0"
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "http-server": "^0.10.0",
+    "merge-stream": "^1.0.1",
+    "polymer-build": "^1.5.1"
   }
 }

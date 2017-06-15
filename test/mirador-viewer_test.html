@@ -6,43 +6,62 @@
 
     <title>mirador-viewer test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../build/es2015/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../build/es2015/bower_components/web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../mirador-viewer.html">
+    <link rel="import" href="../build/es2015/mirador-viewer.html">
   </head>
   <body>
 
     <test-fixture id="BasicTestFixture">
       <template>
-        <mirador-viewer></mirador-viewer>
+        <mirador-viewer uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"></mirador-viewer>
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
+    <test-fixture id="WidthPropertyTestFixture">
       <template>
-        <mirador-viewer prop1="new-prop1"></mirador-viewer>
+        <mirador-viewer
+          uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
+          width="400px"
+        ></mirador-viewer>
       </template>
     </test-fixture>
 
     <script>
       suite('mirador-viewer', function() {
 
-        test('instantiating the element with default properties works', function() {
+        test('instantiating the element with default properties works', function(done) {
           var element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'mirador-viewer');
+          assert.equal(element.width, '100%');
+          assert.equal(element.height, '600px');
           var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello mirador-viewer!');
+          var Miradoriframe = elementShadowRoot.querySelector("#iframe-viewer");
+          assert.isDefined(Miradoriframe);
+          function furtherTest() {
+            var MiradorInstance = Miradoriframe.contentWindow.Mirador;
+            assert.isDefined(MiradorInstance);
+            assert.equal(MiradorInstance.name, "Mirador");
+            done();
+          }
+          window.setTimeout(furtherTest, 2000);
         });
 
-        test('setting a property on the element works', function() {
+        test('setting a property on the element works', function(done) {
           // Create a test fixture
-          var element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
+          var element = fixture('WidthPropertyTestFixture');
+          assert.equal(element.width, '400px');
+          assert.equal(element.height, '600px');
           var elementShadowRoot = element.shadowRoot;
-          var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+          var Miradoriframe = elementShadowRoot.querySelector("#iframe-viewer");
+          assert.isDefined(Miradoriframe);
+          function furtherTest() {
+            var MiradorInstance = Miradoriframe.contentWindow.Mirador;
+            assert.isDefined(MiradorInstance);
+            assert.equal(MiradorInstance.name, "Mirador");
+            done();
+          }
+          window.setTimeout(furtherTest, 2000);
         });
 
       });

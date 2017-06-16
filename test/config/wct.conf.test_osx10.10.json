@@ -5,7 +5,6 @@
     "sauce": {
       "disabled": false,
       "browsers": [
-        "OS X 10.10/firefox@dev",
         "OS X 10.10/firefox@beta",
         "OS X 10.10/chrome@dev",
         "OS X 10.10/chrome@beta",

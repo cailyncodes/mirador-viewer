@@ -26,7 +26,7 @@
     "test:osx10.10": "./node_modules/.bin/wct --expanded --job-name osx10.10 --configFile ./test/config/wct.conf.test_osx10.10.json --root $PWD",
     "test:osx": "yarn run test:osx10.12; yarn run test:osx10.11; yarn run test:osx10.10",
     "test:linux": "./node_modules/.bin/wct --expanded --job-name linux --configFile ./test/config/wct.conf.test_linux.json --root $PWD",
-    "test": "yarn run test:win; yarn run test:osx; yarn run test:linux",
+    "test": "yarn run test:win; yarn run test:osx",
     "run:dev": "http-server -p 3000 --bind 0.0.0.0 --cors"
   },
   "main": "build/es2015/mirador-viewer.html",

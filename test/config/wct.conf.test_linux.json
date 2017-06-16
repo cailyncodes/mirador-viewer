@@ -5,13 +5,7 @@
     "sauce": {
       "disabled": false,
       "browsers": [
-        "Linux/firefox@45",
-        "Linux/firefox@44",
-        "Linux/firefox@43",
-        "Linux/chrome@48",
-        "Linux/chrome@47",
-        "Linux/chrome@46",
-        "Linux/opera@12"
+        "Linux/firefox@45"
       ]
     }
   }

@@ -7,8 +7,6 @@
       "browsers": [
         "OS X 10.10/firefox@dev",
         "OS X 10.10/firefox@beta",
-        "OS X 10.10/firefox@47",
-        "OS X 10.10/firefox@46",
         "OS X 10.10/chrome@dev",
         "OS X 10.10/chrome@beta",
         "OS X 10.10/chrome@59",

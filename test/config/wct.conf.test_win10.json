@@ -1,7 +1,6 @@
 {
   "verbose": false,
   "testTimeout": 180000,
-  "expanded": true,
   "plugins": {
     "sauce": {
       "disabled": false,

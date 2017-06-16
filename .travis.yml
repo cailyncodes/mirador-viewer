@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-- node
+  - "node"
+
+pre_install:
+  - ulimit -n 8192
+
 install:
-- echo "Building for tests"
-- yarn run build:test
+  - echo "Building for tests"
+  - yarn run build:test
+
 script:
-- echo "Starting tests"
-- yarn run test
+  - echo "Starting tests"
+  - yarn run test
+
 after_success:
-- echo "Test Success - Branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"
-env:
-  global:
-  - secure: WXfCaygenyq8XJ1TfjEfv74n4x8escHB4WOJ9ODrff7kisty52bGCKaSjOs55tlimyR0UsqDzTGTHhXmZ8B0n44AXdqf4fONK4rmB9jJc2baX6jn8Ni+OHvbMZLuJ/xN7MzNZBGAwcFD24XFmozLkQb068rSlJkJMTM0r9HVm/4RaL6n50Hkb3vLZYgpNxf63NLIi/Jcz0XcSR6DduBLAW19YozULGGixPNssrpQ/5hNUKShWBJRQ3qiEdTiFAN/K8p2J5EHsR/STLWb8vz3HoXxpvSpD5DYhsqec8lJJXPefc6e7nk1EPO4yKLX0rya38T5Z+ySuR1yFRiptYGoxyNREt1pWbbGYyWqTjoZlWCuCAlkRGzDDv+ykyRLkj4fYCifJNfIzrxrOR/0sAh79KpVQzfdHa9qI7NZCki297t+OHbVm/nwLn643t6VpyH6umpHn2EuUlcAITJ81bF3HRh0wFlT/Cr41etGeY3ldusS2Tf4454hmLin0Fd0nV8HjYerZqoBSCU8BA6KbMBjcl1cMOHnHXD4XmbOpVRCMQ/KfrUHO6D40p92dJ4+DqU/08c9Ld/SyjZN+K3D26Ye41lSRbnArEHDCvoEKHwsbo5u/9QIAk8MCM1jSVAXU2nNiSu3m9p0Pq6hkRMDnomg82VkiOoJF/gcVJVk8JlSL7c=
-  - secure: onSBXLANh5r2AHPwAdQSb9QeTIH8gCIWoK3ih2CUpmfM4sDD+MxnQpLi2O3eKoToPmtGAgF0oti4KOzoV2RhyDRFzxw+NOveH9uQs2pzpCS2zARBwkwD5w4iJ5LehYYC/yZDP8FDJp+osiu356ZKsLn923t9VllcbsZjxmS+SlcWZxLSEqH1vlz7OizsVIgLgKsILsPGAiu8jH5ZYbkLO1WOWpJlzFJpjftdpNH6kSh/3WKTbeV4BKRCR65wHOoaI9BCXbKAJ7eZnI6hBa0Z3FIH9LwOfNYUJKw+fIufRURkm82To86Z6ofObUdrIY/Cn9/LptVjYwCUwqH4Rv+03pS2BSBGKFNiau2frS8pnFlU3/E//pCx84ODlWUMPQghOTBG94rLNujF1m6ry9phofrU12KgX77MU4RUsSGCRDYQPjvxKQBQ8Z5FH0XGymfFsO8Ac8t6ue24crdX48eSWGCE9Oa5wZIOia08NP8bOhjkVwB8I25L5bDmoL6eZMLhIGTPW13nYCc0uNsErx2j9gyke0zhV2XRq3ccar7Il4rlNAvU7YcyJFBXcLfGSEGmFti+5gFQBf2weOUjzWmRQfLxzSeO0LilLs4AnXgzaKTtx1gHG1e7CBMKxEg60HuD57cTJSqZkQPzy7iBH+4kM9hFP72SKjGsLVaYqju4zKA=
+  - echo "Test Success - Branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"

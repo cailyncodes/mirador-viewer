@@ -4,9 +4,7 @@
   "plugins": {
     "sauce": {
       "disabled": false,
-      "browsers": [
-        "Linux/firefox@45"
-      ]
+      "browsers": []
     }
   }
 }

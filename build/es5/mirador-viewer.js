@@ -86,6 +86,7 @@ var MiradorViewer = function (_Polymer$Element) {
       var divContainer = this.shadowRoot.getElementById(divId);
 
       var iframe = divContainer.ownerDocument.createElement("iframe");
+      iframe.id = "iframe-viewer";
       iframe.src = "javascript:true;";
       //iframe.style = "width:100%;height:100%;border:0;";
       iframe.style.width = "100%";

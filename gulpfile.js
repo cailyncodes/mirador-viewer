@@ -11,6 +11,7 @@ const HtmlSplitter = require('polymer-build').HtmlSplitter;
 const mergeStream = require('merge-stream');
 const forkStream = require('polymer-build').forkStream;
 
+// build
 gulp.task('build:dev', () => {
   // get sources
   const unprocessedSourcesSteam = gulp.src("./src/**/*");

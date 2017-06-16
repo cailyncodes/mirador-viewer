@@ -14,10 +14,20 @@
     "clean": "rm -rf bower_components/ node_modules/ build/",
     "pre-build": "yarn run clean; yarn install; bower install",
     "build:dev": "yarn run pre-build; gulp build:dev",
-    "run:dev": "http-server -p 3000 --bind 0.0.0.0 --cors",
     "build:test": "yarn run pre-build; gulp build:test",
     "build": "yarn run pre-build; gulp build",
-    "test": "yarn run pre-build; yarn run build:test; wct"
+    "test:win10": "./node_modules/.bin/wct --expanded --job-name win10 --configFile ./test/config/wct.conf.test_win10.json --root $PWD",
+    "test:win8.1": "./node_modules/.bin/wct --expanded --job-name win8.1 --configFile ./test/config/wct.conf.test_win8.1.json --root $PWD",
+    "test:win8": "./node_modules/.bin/wct --expanded --job-name win8 --configFile ./test/config/wct.conf.test_win8.json --root $PWD",
+    "test:win7": "./node_modules/.bin/wct --expanded --job-name win7 --configFile ./test/config/wct.conf.test_win7.json --root $PWD",
+    "test:win": "yarn run test:win10; yarn run test:win8.1; yarn run test:win8; yarn run test:win7",
+    "test:osx10.12": "./node_modules/.bin/wct --expanded --job-name osx10.12 --configFile ./test/config/wct.conf.test_osx10.12.json --root $PWD",
+    "test:osx10.11": "./node_modules/.bin/wct --expanded --job-name osx10.11 --configFile ./test/config/wct.conf.test_osx10.11.json --root $PWD",
+    "test:osx10.10": "./node_modules/.bin/wct --expanded --job-name osx10.10 --configFile ./test/config/wct.conf.test_osx10.10.json --root $PWD",
+    "test:osx": "yarn run test:osx10.12; yarn run test:osx10.11; yarn run test:osx10.10",
+    "test:linux": "./node_modules/.bin/wct --expanded --job-name linux --configFile ./test/config/wct.conf.test_linux.json --root $PWD",
+    "test": "yarn run test:win; yarn run test:osx; yarn run test:linux",
+    "run:dev": "http-server -p 3000 --bind 0.0.0.0 --cors"
   },
   "main": "build/es2015/mirador-viewer.html",
   "license": "MIT",
@@ -40,6 +50,7 @@
     "gulp-uglify": "^3.0.0",
     "http-server": "^0.10.0",
     "merge-stream": "^1.0.1",
-    "polymer-build": "^1.5.1"
+    "polymer-build": "^1.5.1",
+    "web-component-tester": "^6.0.0"
   }
 }

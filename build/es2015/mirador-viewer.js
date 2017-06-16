@@ -115,6 +115,7 @@ class MiradorViewer extends Polymer.Element {
     let divContainer = this.shadowRoot.getElementById(divId);
 
     let iframe = divContainer.ownerDocument.createElement("iframe");
+    iframe.id = "iframe-viewer";
     iframe.src = "javascript:true;";
     //iframe.style = "width:100%;height:100%;border:0;";
     iframe.style.width = "100%";

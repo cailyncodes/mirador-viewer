@@ -5,12 +5,8 @@
     "sauce": {
       "disabled": false,
       "browsers": [
-        "Windows 8.1/firefox@dev",
-        "Windows 8.1/firefox@beta",
         "Windows 8.1/firefox@53",
         "Windows 8.1/firefox@52",
-        "Windows 8.1/chrome@dev",
-        "Windows 8.1/chrome@beta",
         "Windows 8.1/chrome@59",
         "Windows 8.1/chrome@58"
       ]

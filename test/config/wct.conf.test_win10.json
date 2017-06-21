@@ -6,7 +6,6 @@
       "disabled": false,
       "browsers": [
         "Windows 10/firefox@dev",
-        "Windows 10/firefox@beta",
         "Windows 10/firefox@53",
         "Windows 10/firefox@52",
         "Windows 10/chrome@dev",

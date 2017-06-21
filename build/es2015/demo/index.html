@@ -22,58 +22,20 @@
       <h3>Basic mirador-viewer demo</h3>
       <demo-snippet>
         <template>
-          <mirador-viewer uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"></mirador-viewer>
+          <mirador-viewer></mirador-viewer>
         </template>
       </demo-snippet>
-      <h3>Width-specified mirador-viewer demo</h3>
+      <h3>With manifest mirador-viewer demo</h3>
+      <h4>Minimum needed to get something to display</h4>
       <demo-snippet>
         <template>
           <mirador-viewer
+            type="manifest"
             uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
-            width="700px"
+            location="BDR"
           ></mirador-viewer>
         </template>
       </demo-snippet>
-      <h3>Height-specified mirador-viewer demo</h3>
-      <demo-snippet>
-        <template>
-          <mirador-viewer
-            uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
-            height="900px"
-          ></mirador-viewer>
-        </template>
-      </demo-snippet>
-      <h3>Size-specified mirador-viewer demo</h3>
-      <demo-snippet>
-        <template>
-          <mirador-viewer
-            uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
-            width="800px"
-            height="800px"
-          ></mirador-viewer>
-        </template>
-      </demo-snippet>
-    </div>
-    <div>
-      <h2>Non-constrained demos</h2>
-      <h3>Basic mirador-viewer demo</h3>
-      <mirador-viewer uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"></mirador-viewer>
-      <h3>Width-specified mirador-viewer demo</h3>
-      <mirador-viewer
-        uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
-        width="700px"
-      ></mirador-viewer>
-      <h3>Height-specified mirador-viewer demo</h3>
-      <mirador-viewer
-        uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
-        height="900px"
-      ></mirador-viewer>
-      <h3>Size-specified mirador-viewer demo</h3>
-      <mirador-viewer
-        uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
-        width="800px"
-        height="800px"
-      ></mirador-viewer>
     </div>
   </body>
 </html>

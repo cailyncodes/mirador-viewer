@@ -323,7 +323,6 @@ gulp.task('build:production', () => {
         // ]
       }
     )))
-    .pipe(gulpif(/\.js$/, uglify()))
     .pipe(gulpif(/\.css$/, cssSlam()))
     .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES5.rejoin()); // rejoins those files back into their original location
@@ -332,7 +331,6 @@ gulp.task('build:production', () => {
   const sourcesHtmlSplitterES2015 = new HtmlSplitter();
   const sourcesStreamES2015 = processedES2015Sources
     .pipe(sourcesHtmlSplitterES2015.split()) // split inline JS & CSS out into individual .js & .css files
-    .pipe(gulpif(/\.js$/, uglify()))
     .pipe(gulpif(/\.css$/, cssSlam()))
     .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES2015.rejoin()); // rejoins those files back into their original location
@@ -432,4 +430,4 @@ gulp.task('build:production', () => {
   return;
 });
 
-gulp.task('build', ['build:prod']);
+gulp.task('build', ['build:production']);

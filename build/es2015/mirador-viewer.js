@@ -61,9 +61,9 @@ class MiradorViewer extends Polymer.Element {
 
         let headLinkTag = iframeDoc.createElement("link");
         let headScriptTag = iframeDoc.createElement("script");
-        headLinkTag.href = "../lib/mirador/mirador/css/mirador-combined.css";
+        headLinkTag.href = "./bower_components/mirador-viewer/lib/mirador/mirador/css/mirador-combined.css";
         headLinkTag.rel = "stylesheet";
-        headScriptTag.src = "../lib/mirador/mirador/mirador.js";
+        headScriptTag.src = "./bower_components/mirador-viewer/lib/mirador/mirador/mirador.js";
         headScriptTag.type = "application/javascript";
 
         headTag.appendChild(headLinkTag);
@@ -78,7 +78,7 @@ class MiradorViewer extends Polymer.Element {
         let idRow = `id: "viewer"`;
         let dataRow = this.uri && `data: [{ "manifestUri": "${this.uri}", "location": ""}],` || `data: [{ "manifestUri": "", "location": ""}],`;
         let layoutRow = `layout: "1x1",`;
-        let buildPath = `buildPath: "../lib/mirador/mirador/",`;
+        let buildPath = `buildPath: "./bower_components/mirador-viewer/lib/mirador/mirador/",`;
         let windowObjectsString = this.uri && `[{loadedManifest: "${this.uri}"}]` || `[{loadedManifest: ""}]`;
         let windowObjectsRow = `windowObjects: ${windowObjectsString},`;
 

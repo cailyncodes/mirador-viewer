@@ -49,9 +49,9 @@ var MiradorViewer = function (_Polymer$Element) {
 
           var headLinkTag = iframeDoc.createElement("link");
           var headScriptTag = iframeDoc.createElement("script");
-          headLinkTag.href = "../lib/mirador/mirador/css/mirador-combined.css";
+          headLinkTag.href = "./bower_components/mirador-viewer/lib/mirador/mirador/css/mirador-combined.css";
           headLinkTag.rel = "stylesheet";
-          headScriptTag.src = "../lib/mirador/mirador/mirador.js";
+          headScriptTag.src = "./bower_components/mirador-viewer/lib/mirador/mirador/mirador.js";
           headScriptTag.type = "application/javascript";
 
           headTag.appendChild(headLinkTag);
@@ -66,7 +66,7 @@ var MiradorViewer = function (_Polymer$Element) {
           var idRow = "id: \"viewer\"";
           var dataRow = this.uri && "data: [{ \"manifestUri\": \"" + this.uri + "\", \"location\": \"\"}]," || "data: [{ \"manifestUri\": \"\", \"location\": \"\"}],";
           var layoutRow = "layout: \"1x1\",";
-          var buildPath = "buildPath: \"../lib/mirador/mirador/\",";
+          var buildPath = "buildPath: \"./bower_components/mirador-viewer/lib/mirador/mirador/\",";
           var windowObjectsString = this.uri && "[{loadedManifest: \"" + this.uri + "\"}]" || "[{loadedManifest: \"\"}]";
           var windowObjectsRow = "windowObjects: " + windowObjectsString + ",";
 

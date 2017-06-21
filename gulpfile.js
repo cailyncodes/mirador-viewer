@@ -47,18 +47,12 @@ gulp.task('build:dev', () => {
         // ]
       }
     )))
-    // uglify .pipe(gulpif(/\.js$/, uglify()))
-    .pipe(gulpif(/\.css$/, cssSlam()))
-    .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES5.rejoin()); // rejoins those files back into their original location
 
   // optimize files (ES2015)
   const sourcesHtmlSplitterES2015 = new HtmlSplitter();
   const sourcesStreamES2015 = processedES2015Sources
     .pipe(sourcesHtmlSplitterES2015.split()) // split inline JS & CSS out into individual .js & .css files
-    // uglify .pipe(gulpif(/\.js$/, uglify()))
-    .pipe(gulpif(/\.css$/, cssSlam()))
-    .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES2015.rejoin()); // rejoins those files back into their original location
 
   // place source files in build directory (ES5)
@@ -191,18 +185,12 @@ gulp.task('build:test', () => {
         // ]
       }
     )))
-    // uglify .pipe(gulpif(/\.js$/, uglify()))
-    .pipe(gulpif(/\.css$/, cssSlam()))
-    .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES5.rejoin()); // rejoins those files back into their original location
 
   // optimize files (ES2015)
   const sourcesHtmlSplitterES2015 = new HtmlSplitter();
   const sourcesStreamES2015 = processedES2015Sources
     .pipe(sourcesHtmlSplitterES2015.split()) // split inline JS & CSS out into individual .js & .css files
-    // uglify .pipe(gulpif(/\.js$/, uglify()))
-    .pipe(gulpif(/\.css$/, cssSlam()))
-    .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES2015.rejoin()); // rejoins those files back into their original location
 
   // place source files in build directory (ES5)
@@ -335,7 +323,7 @@ gulp.task('build:production', () => {
         // ]
       }
     )))
-    // uglify .pipe(gulpif(/\.js$/, uglify()))
+    .pipe(gulpif(/\.js$/, uglify()))
     .pipe(gulpif(/\.css$/, cssSlam()))
     .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES5.rejoin()); // rejoins those files back into their original location
@@ -344,7 +332,7 @@ gulp.task('build:production', () => {
   const sourcesHtmlSplitterES2015 = new HtmlSplitter();
   const sourcesStreamES2015 = processedES2015Sources
     .pipe(sourcesHtmlSplitterES2015.split()) // split inline JS & CSS out into individual .js & .css files
-    // uglify .pipe(gulpif(/\.js$/, uglify()))
+    .pipe(gulpif(/\.js$/, uglify()))
     .pipe(gulpif(/\.css$/, cssSlam()))
     .pipe(gulpif(/\.html$/, htmlMinifier()))
     .pipe(sourcesHtmlSplitterES2015.rejoin()); // rejoins those files back into their original location

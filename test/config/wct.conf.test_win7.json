@@ -1,0 +1,15 @@
+{
+  "verbose": false,
+  "testTimeout": 1800000,
+  "plugins": {
+    "sauce": {
+      "disabled": false,
+      "browsers": [
+        "Windows 7/firefox@53",
+        "Windows 7/firefox@52",
+        "Windows 7/chrome@59",
+        "Windows 7/chrome@58"
+      ]
+    }
+  }
+}

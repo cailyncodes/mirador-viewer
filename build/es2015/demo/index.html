@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>mirador-viewer demo</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../mirador-viewer.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic mirador-viewer demo</h3>
+      <demo-snippet>
+        <template>
+          <mirador-viewer></mirador-viewer>
+        </template>
+      </demo-snippet>
+      <h3>With manifest mirador-viewer demo</h3>
+      <h4>Minimum needed to get something to display</h4>
+      <demo-snippet>
+        <template>
+          <mirador-viewer
+            type="manifest"
+            uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
+            location="BDR"
+          ></mirador-viewer>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

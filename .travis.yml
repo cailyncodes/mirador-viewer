@@ -1,0 +1,21 @@
+branches:
+  except:
+    - master
+
+language: node_js
+node_js:
+- node
+pre_install:
+- ulimit -n 8192
+install:
+- echo "Building for tests"
+- yarn run build:test
+script:
+- echo "Starting tests"
+- yarn run test
+after_success:
+- echo "Test Success - Branch($TRAVIS_BRANCH) Pull Request($TRAVIS_PULL_REQUEST) Tag($TRAVIS_TAG)"
+env:
+  global:
+  - secure: pY8CpKaV2SwUaIYxnuP8nbVPivJcWgamgawIcd+x7wHo7BioGlmHZXc5tbwaLzWoXo8vSJh/WrnnTWGWMr54uPAA8kKBGXFKrbf8vyDh00ChsATuC5xQgMM2oDuFdlVdRhkC6o5/6j5eNDR2X+GTrvsZpAYUikJXC2F1XgD8joa8RBoFuBYyYhV11PvVFRXF3hyVL735E/KQjDsTpqXLRBA38d18kXME7SLg5cQmoaL0M7urffcxzFulQn05XlpXcXeZx20hs1vMXr1C04W2uILRF8Y3H1t8aaWiUVIvp9KedLB78ELgGlX6zpb1Pv0OiqQAgTAIjl0l+e64Ct1LviQDsAN8zWzIMIALqc77GrVIcZEVQqIEamtRFVjCNDk4OO6KnzqDzikvDw8M8Yek3ts5I6io7zdrNlauvCtslRtLTc3HpWiCEVUAmMm5N0G8dJBKLXHAGO5fZeDodx2B+wfE9upu7KnKTANwxAeUVaCtY4ot8zrGeA2KayYIzikTg+t9N4zz03+5MYQbUX+cIZIVH+iPfr3iuZ66WtMXWBrC5xEkv7VdAzKIGIpCwh5b/c10E/X0vrM0WUeXgEwF5FiRuy3PNklBH+czx6U6RlSOKQDkH3nLdsKGS1t0xlys+L/od0pxZV1YbblOMQiLdMosU+2d8goe60ee2GEFuzY=
+  - secure: fd3YYotwIn7dXYJ5NNgF2ss3vLgt0uV8AGpd165FknYsdLAPkUIanpoI9XqBY3/fM5H4StECrQ+esqopf2jwE8NbleLSUHeiPP0f0z1Bx0qQARGP/qHdHc3XVks6adzkTF7a4e+tYW55qVQtP4h87ptzfrGr8sdNGpchRMQgLQjwf2aWoGEDp9PZy0pPrykUENTiwGnTHBcjvsK5vcTEWRQo9NIturFbc/oKMzAIE1Fif6TLZ/jDOU7y9RO7awiqmBilAO8i/w+DIuZufx42WuW8jeu2C5lmp1uTaOs4nwzT+ml5sIQkq3iNPhjmBuxELm4shSIQZXxpSnIYYMDR4Yqc6qmffOMCcwHMHArHJ7Z7wUUXoVuiGI97Rny3DNrJZ4ahuFNxNFre7EoXKD7x3QMTur+E22KKpGUiRiN+fYHo8AemH5PrI4gCcPjt/Mph5LBOObCLnAlnW03jMGE2UoJGnbsw8wBoBC8rB7a0XRtfLAIOkGY0IIbzLW3WC6UFidbUOy2qP58QIv+2FgISuftU1wF0I0UIn19xOTBUYQf8HpfvBMhCZGxE/+JUEtWqLdJMLc0gtOivNxUcY6SWEJmh5RU+TCNCm6llCs+Ab/wnnmw2Bi3lvWMfSWRGd/93Ia62AI75ANYmB+x2HyBC5cGwhc1j+AEnIBhexStTSSM=

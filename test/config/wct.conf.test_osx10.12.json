@@ -1,0 +1,16 @@
+{
+  "verbose": false,
+  "testTimeout": 180000,
+  "plugins": {
+    "sauce": {
+      "disabled": false,
+      "browsers": [
+        "OS X 10.12/firefox@53",
+        "OS X 10.12/firefox@52",
+        "OS X 10.12/chrome@59",
+        "OS X 10.12/chrome@58",
+        "OS X 10.12/safari@10"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "verbose": false,
+  "testTimeout": 180000,
+  "plugins": {
+    "sauce": {
+      "disabled": false,
+      "browsers": [
+        "Windows 10/firefox@53",
+        "Windows 10/firefox@52",
+        "Windows 10/chrome@59",
+        "Windows 10/chrome@58",
+        "Windows 10/microsoftedge@15"
+      ]
+    }
+  }
+}

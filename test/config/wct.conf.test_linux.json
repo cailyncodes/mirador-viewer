@@ -1,0 +1,10 @@
+{
+  "verbose": false,
+  "testTimeout": 180000,
+  "plugins": {
+    "sauce": {
+      "disabled": false,
+      "browsers": []
+    }
+  }
+}

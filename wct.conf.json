@@ -1,0 +1,3 @@
+{
+  "readme": "Due to maximum concurrency allowed by SauceLabs, the tests needed to be broken up into smaller chunks. Please see the conf files in test/."
+}

@@ -1,0 +1,13 @@
+{
+  "verbose": false,
+  "testTimeout": 180000,
+  "plugins": {
+    "sauce": {
+      "disabled": false,
+      "browsers": [
+        "OS X 10.10/chrome@59",
+        "OS X 10.10/chrome@58"
+      ]
+    }
+  }
+}

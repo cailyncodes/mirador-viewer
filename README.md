@@ -31,7 +31,7 @@ However, we recommend you fix your version to the minor version:
 
 Clone the repo into your file system.
 
-    git clone https://github.com/colehansen/mirador-viewer.github
+    git clone https://github.com/colehansen/mirador-viewer.git
 
 Make sure that you have yarn installed and then run:
 

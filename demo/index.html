@@ -12,9 +12,9 @@
     <title>mirador-viewer demo</title>
     <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../mirador-viewer.html">
+    <!-- <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">  -->
+    <!-- <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">  -->
+    <link rel="import" href="../mirador-viewer.html"> 
 
 
     <custom-style>
@@ -24,14 +24,14 @@
   </head>
   <body>
     <div class="vertical-section-container centered">
-      <h3>Basic mirador-viewer demo</h3>
-      <demo-snippet>
-        <template>
+       <h3>Basic mirador-viewer demo</h3>
+      <!-- <demo-snippet>
+        <template> -->
           <mirador-viewer uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"></mirador-viewer>
-        </template>
-      </demo-snippet>
+        <!-- </template> -->
+      </demo-snippet> 
       <h3>Width-specified mirador-viewer demo</h3>
-      <demo-snippet>
+      <!-- <demo-snippet>
         <template>
           <mirador-viewer
             uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"
@@ -57,9 +57,9 @@
             height="800px"
           ></mirador-viewer>
         </template>
-      </demo-snippet>
+      </demo-snippet> -->
     </div>
-    <div>
+    <!-- <div>
       <h2>Non-constrained demos</h2>
       <h3>Basic mirador-viewer demo</h3>
       <mirador-viewer uri="https://repository.library.brown.edu/iiif/presentation/bdr:403473/manifest.json"></mirador-viewer>
@@ -79,6 +79,6 @@
         width="800px"
         height="800px"
       ></mirador-viewer>
-    </div>
+    </div> -->
   </body>
 </html>
